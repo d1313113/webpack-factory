@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const webpack = require("webpack");
 
 module.exports = {
   // 项目入口文件
@@ -58,6 +59,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "../public/index.html")
     }),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ]
 };

@@ -6,3 +6,8 @@ new Vue({
   template: "<App />",
   components: { App }
 });
+
+// 开启热更新
+if (module.hot) {
+  module.hot.accept();
+}
