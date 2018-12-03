@@ -1,0 +1,1 @@
+console.log("index,测试webpack构建");
