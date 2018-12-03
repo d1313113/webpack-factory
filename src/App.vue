@@ -1,5 +1,5 @@
 <template>
-  <h1>Hello Vue</h1>
+  <h1 class="title">Hello Vue</h1>
 </template>
 <script>
 export default {
@@ -12,6 +12,13 @@ html, body {
   margin: 0;
   box-sizing: border-box;
   font-size: 16px;
+}
+h1{
+  display: flex;
+}
+.title{
+  display: flex;
+  background-color: pink;
 }
 </style>
 
