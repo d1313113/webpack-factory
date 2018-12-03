@@ -1,8 +1,8 @@
-console.log("index,测试webpack构建");
-const x = "index.js";
+import Vue from "vue";
+import App from "./App";
 
-const y = (x) => {
-  console.log(x);
-}
-
-y(x);
+new Vue({
+  el: "#app",
+  template: "<App />",
+  components: { App }
+});
