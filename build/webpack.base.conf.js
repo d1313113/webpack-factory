@@ -14,10 +14,20 @@ module.exports = {
   },
   module: {
     rules: [
+      // babel插件
       {
         test: /\.js$/,
         use: "babel-loader",
         exclude: /node_modules/
+      },
+      // 文件loader
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: ["file-loader"]
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ["file-loader"]
       }
     ]
   },
