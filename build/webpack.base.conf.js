@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const webpack = require("webpack");
+const AutoDllPlugin = require("autodll-webpack-plugin");
 
 module.exports = {
   // 项目入口文件
@@ -47,10 +48,6 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ["vue-style-loader", "css-loader"]
-      },
-      {
-        test: /\.css$/,
         use: ["vue-style-loader", "css-loader", "postcss-loader"]
       }
     ]
@@ -60,6 +57,15 @@ module.exports = {
       template: path.resolve(__dirname, "../public/index.html")
     }),
     new VueLoaderPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new AutoDllPlugin({
+      injuct: true,
+      debug: true,
+      filename: "[name]_[hash].js",
+      path: "./dll",
+      entry: {
+        vendor: ["vue", "vue-router", "vuex"]
+      }
+    })
   ]
 };
