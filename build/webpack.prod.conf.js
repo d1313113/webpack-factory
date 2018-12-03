@@ -3,8 +3,7 @@ const path = require("path");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const baseConfig = require("./webpack.base.conf");
 
-module.exports = {
-  // 生产模式
+module.exports = merge(baseConfig, {
   mode: "production",
   devtool: "source-map",
   module: {
@@ -17,4 +16,4 @@ module.exports = {
       dry: false
     })
   ]
-};
+});
