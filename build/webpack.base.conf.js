@@ -59,13 +59,14 @@ module.exports = {
     new VueLoaderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new AutoDllPlugin({
-      injuct: true,
+      inject: true,
       debug: true,
       filename: "[name]_[hash].js",
       path: "./dll",
       entry: {
         vendor: ["vue", "vue-router", "vuex"]
       }
-    })
+    }),
+    new webpack.optimize.SplitChunksPlugin()
   ]
 };
