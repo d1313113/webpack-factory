@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const webpack = require("webpack");
 const AutoDllPlugin = require("autodll-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   // 项目入口文件
@@ -71,6 +72,10 @@ module.exports = {
         vendor: ["vue", "vue-router", "vuex"]
       }
     }),
-    new webpack.optimize.SplitChunksPlugin()
+    new webpack.optimize.SplitChunksPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css"
+    })
   ]
 };
