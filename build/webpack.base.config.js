@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 
 module.exports = {
-  entry: ["babel-polyfill", "../src/index.js"],
+  entry: ["babel-polyfill", "react-hot-loader/patch", "../src/index.js"],
   output: {
     filename: "bundle.[hash:8].js",
     path: path.resolve(__dirname, "/dist")
