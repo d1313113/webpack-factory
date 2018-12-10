@@ -6,6 +6,18 @@ const config = require("./webpack.base.config");
 module.exports = merge(config, {
   devtool: "inline-source-map",
   mode: "development",
+  module: {
+    relues: [
+      {
+        test: /\.scss$/,
+        use: [
+          "style-loader",
+          "css-loader",
+          "sass-loader"
+        ]
+      }
+    ]
+  },
   devServer: {
     historyApiFallback: true,
     contentBase: path.resolve(__dirname, "../dist"),
